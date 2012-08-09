@@ -23,7 +23,7 @@ function pushtape_discography_panelizer_defaults() {
   $panelizer->pipeline = 'ipe';
   $panelizer->contexts = array();
   $panelizer->relationships = array();
-  $panelizer->did = 4;
+  $panelizer->did = 3;
   $panelizer->access = array();
   $panelizer->view_mode = '';
   $panelizer->css_class = '';
@@ -102,17 +102,22 @@ function pushtape_discography_panelizer_defaults() {
     $pane = new stdClass();
     $pane->pid = 'new-3';
     $pane->panel = 'column1';
-    $pane->type = 'views_panes';
-    $pane->subtype = 'tracks-panel_pane_1';
+    $pane->type = 'entity_field';
+    $pane->subtype = 'node:field_tracklist';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
-      'context' => array(
-        0 => 'panelizer',
+      'label' => 'above',
+      'formatter' => 'entityreference_label',
+      'delta_limit' => '0',
+      'delta_offset' => '0',
+      'delta_reversed' => 0,
+      'formatter_settings' => array(
+        'link' => 1,
       ),
-      'view_mode' => NULL,
-      'widget_title' => '',
-      'items_per_page' => NULL,
+      'context' => 'panelizer',
+      'override_title' => 0,
+      'override_title_text' => '',
     );
     $pane->cache = array();
     $pane->style = array(
@@ -340,12 +345,18 @@ function pushtape_discography_panelizer_defaults() {
     $pane->access = array();
     $pane->configuration = array(
       'label' => 'hidden',
-      'formatter' => 'file_rendered',
+      'formatter' => 'soundmanager2_inline_player',
       'delta_limit' => 0,
       'delta_offset' => '0',
       'delta_reversed' => FALSE,
       'formatter_settings' => array(
-        'file_view_mode' => 'media_large',
+        'file_view_mode' => 'default',
+        'inline' => 0,
+        'visualization' => 1,
+        'waveform' => 1,
+        'eq' => 1,
+        'amplifier' => 1,
+        'diameter' => '256',
       ),
       'context' => 'panelizer',
       'override_title' => 0,
