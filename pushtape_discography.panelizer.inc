@@ -24,6 +24,7 @@ function pushtape_discography_panelizer_defaults() {
   $panelizer->contexts = array();
   $panelizer->relationships = array();
   $panelizer->access = array();
+  $panelizer->view_mode = '';
   $panelizer->css_class = '';
   $panelizer->title_element = 'H2';
   $panelizer->link_to_entity = TRUE;
@@ -50,15 +51,15 @@ function pushtape_discography_panelizer_defaults() {
     $pane->pid = 'new-1';
     $pane->panel = 'column1';
     $pane->type = 'entity_field';
-    $pane->subtype = 'node:field_tracklist';
+    $pane->subtype = 'node:field_artist';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
-      'label' => 'title',
-      'formatter' => 'pushtape_ui_ol_view',
-      'delta_limit' => '0',
+      'label' => 'inline',
+      'formatter' => 'taxonomy_term_reference_plain',
+      'delta_limit' => 0,
       'delta_offset' => '0',
-      'delta_reversed' => 0,
+      'delta_reversed' => FALSE,
       'formatter_settings' => array(),
       'context' => 'panelizer',
       'override_title' => 0,
@@ -78,15 +79,15 @@ function pushtape_discography_panelizer_defaults() {
     $pane->pid = 'new-2';
     $pane->panel = 'column1';
     $pane->type = 'entity_field';
-    $pane->subtype = 'node:field_artist';
+    $pane->subtype = 'node:field_tracklist';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
-      'label' => 'inline',
-      'formatter' => 'taxonomy_term_reference_plain',
-      'delta_limit' => 0,
+      'label' => 'title',
+      'formatter' => 'pushtape_ui_ol_view',
+      'delta_limit' => '0',
       'delta_offset' => '0',
-      'delta_reversed' => FALSE,
+      'delta_reversed' => 0,
       'formatter_settings' => array(),
       'context' => 'panelizer',
       'override_title' => 0,
@@ -166,13 +167,25 @@ function pushtape_discography_panelizer_defaults() {
     $pane->pid = 'new-5';
     $pane->panel = 'footer';
     $pane->type = 'views_panes';
-    $pane->subtype = 'albums-panel_pane_2';
+    $pane->subtype = 'releases-panel_pane_3';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
-      'view_mode' => NULL,
-      'widget_title' => 'Discography',
+      'view_mode' => 'teaser',
+      'widget_title' => NULL,
       'items_per_page' => NULL,
+      'exposed' => array(
+        'sort_by' => NULL,
+        'sort_order' => NULL,
+      ),
+      'use_pager' => NULL,
+      'pager_id' => NULL,
+      'offset' => NULL,
+      'link_to_view' => NULL,
+      'more_link' => NULL,
+      'path' => NULL,
+      'view_settings' => 'fields',
+      'header_type' => 'none',
     );
     $pane->cache = array();
     $pane->style = array(
@@ -184,31 +197,8 @@ function pushtape_discography_panelizer_defaults() {
     $pane->locks = array();
     $display->content['new-5'] = $pane;
     $display->panels['footer'][0] = 'new-5';
-    $pane = new stdClass();
-    $pane->pid = 'new-6';
-    $pane->panel = 'header';
-    $pane->type = 'node_title';
-    $pane->subtype = 'node_title';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'link' => 0,
-      'context' => 'panelizer',
-      'override_title' => 1,
-      'override_title_text' => '',
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 0;
-    $pane->locks = array();
-    $display->content['new-6'] = $pane;
-    $display->panels['header'][0] = 'new-6';
-  $display->hide_title = PANELS_TITLE_FIXED;
-  $display->title_pane = 'new-6';
+  $display->hide_title = PANELS_TITLE_NONE;
+  $display->title_pane = '0';
   $panelizer->display = $display;
   $export['node:album:default'] = $panelizer;
 
@@ -226,6 +216,7 @@ function pushtape_discography_panelizer_defaults() {
   $panelizer->contexts = array();
   $panelizer->relationships = array();
   $panelizer->access = array();
+  $panelizer->view_mode = '';
   $panelizer->css_class = '';
   $panelizer->title_element = 'H2';
   $panelizer->link_to_entity = TRUE;
@@ -249,30 +240,7 @@ function pushtape_discography_panelizer_defaults() {
   $display->content = array();
   $display->panels = array();
     $pane = new stdClass();
-    $pane->pid = 'new-7';
-    $pane->panel = 'column1';
-    $pane->type = 'node_title';
-    $pane->subtype = 'node_title';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'link' => 0,
-      'context' => 'panelizer',
-      'override_title' => 1,
-      'override_title_text' => '',
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 0;
-    $pane->locks = array();
-    $display->content['new-7'] = $pane;
-    $display->panels['column1'][0] = 'new-7';
-    $pane = new stdClass();
-    $pane->pid = 'new-8';
+    $pane->pid = 'new-6';
     $pane->panel = 'column1';
     $pane->type = 'entity_field';
     $pane->subtype = 'node:field_album';
@@ -298,12 +266,12 @@ function pushtape_discography_panelizer_defaults() {
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 1;
+    $pane->position = 0;
     $pane->locks = array();
-    $display->content['new-8'] = $pane;
-    $display->panels['column1'][1] = 'new-8';
+    $display->content['new-6'] = $pane;
+    $display->panels['column1'][0] = 'new-6';
     $pane = new stdClass();
-    $pane->pid = 'new-9';
+    $pane->pid = 'new-7';
     $pane->panel = 'column1';
     $pane->type = 'entity_field';
     $pane->subtype = 'node:field_artist';
@@ -326,12 +294,12 @@ function pushtape_discography_panelizer_defaults() {
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 2;
+    $pane->position = 1;
     $pane->locks = array();
-    $display->content['new-9'] = $pane;
-    $display->panels['column1'][2] = 'new-9';
+    $display->content['new-7'] = $pane;
+    $display->panels['column1'][1] = 'new-7';
     $pane = new stdClass();
-    $pane->pid = 'new-10';
+    $pane->pid = 'new-8';
     $pane->panel = 'column1';
     $pane->type = 'entity_field';
     $pane->subtype = 'node:field_audio';
@@ -362,12 +330,12 @@ function pushtape_discography_panelizer_defaults() {
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 3;
+    $pane->position = 2;
     $pane->locks = array();
-    $display->content['new-10'] = $pane;
-    $display->panels['column1'][3] = 'new-10';
+    $display->content['new-8'] = $pane;
+    $display->panels['column1'][2] = 'new-8';
     $pane = new stdClass();
-    $pane->pid = 'new-11';
+    $pane->pid = 'new-9';
     $pane->panel = 'column1';
     $pane->type = 'entity_field';
     $pane->subtype = 'node:body';
@@ -390,12 +358,12 @@ function pushtape_discography_panelizer_defaults() {
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 4;
+    $pane->position = 3;
     $pane->locks = array();
-    $display->content['new-11'] = $pane;
-    $display->panels['column1'][4] = 'new-11';
+    $display->content['new-9'] = $pane;
+    $display->panels['column1'][3] = 'new-9';
     $pane = new stdClass();
-    $pane->pid = 'new-12';
+    $pane->pid = 'new-10';
     $pane->panel = 'column1';
     $pane->type = 'entity_field';
     $pane->subtype = 'node:field_lyrics';
@@ -418,12 +386,12 @@ function pushtape_discography_panelizer_defaults() {
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 5;
+    $pane->position = 4;
     $pane->locks = array();
-    $display->content['new-12'] = $pane;
-    $display->panels['column1'][5] = 'new-12';
+    $display->content['new-10'] = $pane;
+    $display->panels['column1'][4] = 'new-10';
     $pane = new stdClass();
-    $pane->pid = 'new-13';
+    $pane->pid = 'new-11';
     $pane->panel = 'column1';
     $pane->type = 'entity_field';
     $pane->subtype = 'node:field_credits';
@@ -446,12 +414,12 @@ function pushtape_discography_panelizer_defaults() {
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 6;
+    $pane->position = 5;
     $pane->locks = array();
-    $display->content['new-13'] = $pane;
-    $display->panels['column1'][6] = 'new-13';
+    $display->content['new-11'] = $pane;
+    $display->panels['column1'][5] = 'new-11';
     $pane = new stdClass();
-    $pane->pid = 'new-14';
+    $pane->pid = 'new-12';
     $pane->panel = 'column2';
     $pane->type = 'entity_field';
     $pane->subtype = 'node:field_artwork';
@@ -480,19 +448,31 @@ function pushtape_discography_panelizer_defaults() {
     $pane->extras = array();
     $pane->position = 0;
     $pane->locks = array();
-    $display->content['new-14'] = $pane;
-    $display->panels['column2'][0] = 'new-14';
+    $display->content['new-12'] = $pane;
+    $display->panels['column2'][0] = 'new-12';
     $pane = new stdClass();
-    $pane->pid = 'new-15';
+    $pane->pid = 'new-13';
     $pane->panel = 'footer';
     $pane->type = 'views_panes';
-    $pane->subtype = 'albums-panel_pane_2';
+    $pane->subtype = 'releases-panel_pane_3';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
-      'view_mode' => NULL,
-      'widget_title' => 'Discography',
+      'view_mode' => 'teaser',
+      'widget_title' => NULL,
       'items_per_page' => NULL,
+      'exposed' => array(
+        'sort_by' => NULL,
+        'sort_order' => NULL,
+      ),
+      'use_pager' => NULL,
+      'pager_id' => NULL,
+      'offset' => NULL,
+      'link_to_view' => NULL,
+      'more_link' => NULL,
+      'path' => NULL,
+      'view_settings' => 'fields',
+      'header_type' => 'none',
     );
     $pane->cache = array();
     $pane->style = array(
@@ -502,8 +482,8 @@ function pushtape_discography_panelizer_defaults() {
     $pane->extras = array();
     $pane->position = 0;
     $pane->locks = array();
-    $display->content['new-15'] = $pane;
-    $display->panels['footer'][0] = 'new-15';
+    $display->content['new-13'] = $pane;
+    $display->panels['footer'][0] = 'new-13';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = '0';
   $panelizer->display = $display;
