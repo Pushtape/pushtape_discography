@@ -24,7 +24,6 @@ function pushtape_discography_panelizer_defaults() {
   $panelizer->contexts = array();
   $panelizer->relationships = array();
   $panelizer->access = array();
-  $panelizer->view_mode = '';
   $panelizer->css_class = '';
   $panelizer->title_element = 'H2';
   $panelizer->link_to_entity = TRUE;
@@ -229,7 +228,6 @@ function pushtape_discography_panelizer_defaults() {
   $panelizer->contexts = array();
   $panelizer->relationships = array();
   $panelizer->access = array();
-  $panelizer->view_mode = '';
   $panelizer->css_class = '';
   $panelizer->title_element = 'H2';
   $panelizer->link_to_entity = TRUE;
