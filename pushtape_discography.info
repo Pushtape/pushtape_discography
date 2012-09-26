@@ -51,6 +51,7 @@ features[page_manager_pages][] = pushtape_music_panel
 features[page_manager_pages][] = pushtape_tracks
 features[panelizer_defaults][] = node:album:default
 features[panelizer_defaults][] = node:track:default
+features[panels_renderer_pipeline][] = ipep
 features[taxonomy][] = artist
 features[taxonomy][] = tags
 features[variable][] = field_bundle_settings_node__album
