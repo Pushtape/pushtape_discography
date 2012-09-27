@@ -35,7 +35,7 @@ function pushtape_discography_apps_app_info() {
 function pushtape_discography_menu() {
 
   // Discography
-  $items['admin/pushtape/manage-discography'] = array(
+  $items['admin/pushtape'] = array(
     'title' => 'Discography',
     'description' => 'Manage Discography.',
     'page callback' => 'drupal_goto',
@@ -49,7 +49,7 @@ function pushtape_discography_menu() {
     ),
   );
 // Discoography > Actions
-  $items['admin/pushtape/manage-discography/actions'] = array(
+  $items['admin/pushtape/actions'] = array(
     'title' => 'Actions',
     'description' => 'tracks actions.',
     'page callback' => 'system_admin_menu_block_page',
@@ -64,7 +64,7 @@ function pushtape_discography_menu() {
   );
 
   // Discoography > Settings
-  $items['admin/pushtape/manage-discography/settings'] = array(
+  $items['admin/pushtape/settings'] = array(
     'title' => 'Settings',
     'description' => 'discography settings.',
     'page callback' => 'system_admin_menu_block_page',
@@ -79,7 +79,7 @@ function pushtape_discography_menu() {
   );
 
   // Discoography > Settings > tracks
-  $items['admin/pushtape/manage-discography/settings/tracks'] = array(
+  $items['admin/pushtape/settings/tracks'] = array(
     'title' => 'Tracks',
     'description' => 'Manage tracks for your Site.',
     'page callback' => 'drupal_goto',
@@ -87,13 +87,37 @@ function pushtape_discography_menu() {
     'access callback' => TRUE,
   );
     // Discoography > Settings > albums
-  $items['admin/pushtape/manage-discography/settings/albums'] = array(
+  $items['admin/pushtape/settings/albums'] = array(
     'title' => 'Albums',
     'description' => 'Manage albums for your Site.',
     'page callback' => 'drupal_goto',
     'page arguments' => array('admin/pushtape/config/albums'),
     'access callback' => TRUE,
   );
+// Add settings pages for Pushtape and Pushtape Apps
+  foreach(module_list() as $module) {
+    $app_info = module_invoke($module, 'apps_app_info');
+    if (!empty($app_info) && !empty($app_info['configure form'])) {
+      $module_info = drupal_parse_info_file(drupal_get_path('module', $module) . '/' . $module . '.info');
+      if (!empty($module_info['package']) && $module_info['package'] == 'Pushtape') {
+        $items['admin/pushtape /settings/' . $module] = array(
+          'title' => $module_info['name'],
+          'description' => 'This is the configuration screen for ' . $module_info['name'],
+          'page callback' => 'drupal_get_form',
+          'page arguments' => array($app_info['configure form']),
+          'access arguments' => array('administer site configuration'),
+        );
+      } else if (!empty($module_info['package']) && $module_info['package'] == 'Pushtape Apps') {
+        $items['admin/pushtape /app_settings/' . $module] = array(
+          'title' => $module_info['name'],
+          'description' => 'This is the configuration screen for ' . $module_info['name'],
+          'page callback' => 'drupal_get_form',
+          'page arguments' => array($app_info['configure form']),
+          'access arguments' => array('administer site configuration'),
+        );
+      }
+    }
+  }
   return $items;
 }
 
@@ -106,7 +130,7 @@ function pushtape_discography_configure_form($form, &$form_state) {
   // This is currently just to test the apps config integration
   $form['pushtape_discography_config_group'] = array(
       '#type' => 'fieldset',
-      '#title' => "Configuration Options for Panopoly News",
+      '#title' => "Configuration Options for pushtape_discography",
   );
 
   $form['pushtape_discography_config_group']['pushtape_discography_test'] = array(

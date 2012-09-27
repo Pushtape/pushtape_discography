@@ -13,7 +13,7 @@ class panels_renderer_ipep extends panels_renderer_ipe {
         '#type' => 'link',
         '#title' => t('Add more content'),
       	'#module' => 'pushtape_discography',
-        '#href' => 'node/add/panopoly-news-article',
+        '#href' => 'node/add/track',
         '#id' => 'panels-ipe-add-new-content',
         '#attributes' => array(
           'class' => array('panels-ipe-add-content', 'panels-ipe-pseudobutton'),
