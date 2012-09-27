@@ -1,7 +1,7 @@
 name = Pushtape Discography
 description = Creates album and track content types and views.
 core = 7.x
-package = Pushtape
+package = Panopoly Apps
 php = 5.2.4
 version = 7.x-1.x-dev
 project = pushtape_discography
@@ -19,7 +19,7 @@ dependencies[] = pushtape_ui
 dependencies[] = strongarm
 dependencies[] = taxonomy
 dependencies[] = views
-apps[server] = http://apps.rosenstrauch.com/apps/query/pushtape
+apps[server] = http://apps.pushtape.openlearninglabs.org/app/query/pushtape
 datestamp = 1347274631
 features[ctools][] = page_manager:pages_default:1
 features[ctools][] = panelizer:panelizer:1
