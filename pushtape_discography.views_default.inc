@@ -234,10 +234,40 @@ function pushtape_discography_views_default_views() {
   $handler->display->display_options['filters']['field_album_target_id']['operator'] = 'empty';
   $handler->display->display_options['filters']['field_album_target_id']['group'] = 2;
 
+  /* Display: Block */
+  $handler = $view->new_display('block', 'Block', 'block_1');
+  $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
+  $handler->display->display_options['defaults']['pager'] = FALSE;
+  $handler->display->display_options['pager']['type'] = 'mini';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '5';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['pager']['options']['id'] = '0';
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Content: Artwork */
+  $handler->display->display_options['fields']['field_artwork']['id'] = 'field_artwork';
+  $handler->display->display_options['fields']['field_artwork']['table'] = 'field_data_field_artwork';
+  $handler->display->display_options['fields']['field_artwork']['field'] = 'field_artwork';
+  $handler->display->display_options['fields']['field_artwork']['label'] = '';
+  $handler->display->display_options['fields']['field_artwork']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_artwork']['hide_alter_empty'] = FALSE;
+  $handler->display->display_options['fields']['field_artwork']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_artwork']['settings'] = array(
+    'image_style' => 'artwork_thumbnail',
+    'image_link' => 'content',
+  );
+  /* Field: Content: Title */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'node';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['label'] = '';
+  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
+  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+
   /* Display: Page */
   $handler = $view->new_display('page', 'Page', 'page');
   $handler->display->display_options['defaults']['title'] = FALSE;
   $handler->display->display_options['title'] = 'Discography';
+  $handler->display->display_options['enabled'] = FALSE;
   $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
   $handler->display->display_options['path'] = 'discography';
   $handler->display->display_options['menu']['type'] = 'normal';
@@ -245,26 +275,6 @@ function pushtape_discography_views_default_views() {
   $handler->display->display_options['menu']['weight'] = '-1';
   $handler->display->display_options['menu']['name'] = 'main-menu';
   $handler->display->display_options['menu']['context'] = 0;
-
-  /* Display: All Releases pane */
-  $handler = $view->new_display('panel_pane', 'All Releases pane', 'panel_pane_1');
-  $handler->display->display_options['defaults']['title'] = FALSE;
-  $handler->display->display_options['enabled'] = FALSE;
-  $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
-  $handler->display->display_options['pane_category']['name'] = 'Pushtape';
-  $handler->display->display_options['pane_category']['weight'] = '0';
-
-  /* Display: Releases Front pane */
-  $handler = $view->new_display('panel_pane', 'Releases Front pane', 'panel_pane_2');
-  $handler->display->display_options['defaults']['title'] = FALSE;
-  $handler->display->display_options['title'] = 'Discography';
-  $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
-  $handler->display->display_options['defaults']['pager'] = FALSE;
-  $handler->display->display_options['pager']['type'] = 'some';
-  $handler->display->display_options['pager']['options']['items_per_page'] = '4';
-  $handler->display->display_options['pager']['options']['offset'] = '0';
-  $handler->display->display_options['pane_category']['name'] = 'Pushtape';
-  $handler->display->display_options['pane_category']['weight'] = '0';
 
   /* Display: Releases Footer pane */
   $handler = $view->new_display('panel_pane', 'Releases Footer pane', 'panel_pane_3');
@@ -297,34 +307,24 @@ function pushtape_discography_views_default_views() {
   $handler->display->display_options['pane_category']['name'] = 'Pushtape';
   $handler->display->display_options['pane_category']['weight'] = '0';
 
-  /* Display: Block */
-  $handler = $view->new_display('block', 'Block', 'block_1');
+  /* Display: Releases Front pane */
+  $handler = $view->new_display('panel_pane', 'Releases Front pane', 'panel_pane_2');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = 'Discography';
   $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
   $handler->display->display_options['defaults']['pager'] = FALSE;
-  $handler->display->display_options['pager']['type'] = 'mini';
-  $handler->display->display_options['pager']['options']['items_per_page'] = '5';
+  $handler->display->display_options['pager']['type'] = 'some';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '4';
   $handler->display->display_options['pager']['options']['offset'] = '0';
-  $handler->display->display_options['pager']['options']['id'] = '0';
-  $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Field: Content: Artwork */
-  $handler->display->display_options['fields']['field_artwork']['id'] = 'field_artwork';
-  $handler->display->display_options['fields']['field_artwork']['table'] = 'field_data_field_artwork';
-  $handler->display->display_options['fields']['field_artwork']['field'] = 'field_artwork';
-  $handler->display->display_options['fields']['field_artwork']['label'] = '';
-  $handler->display->display_options['fields']['field_artwork']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_artwork']['hide_alter_empty'] = FALSE;
-  $handler->display->display_options['fields']['field_artwork']['click_sort_column'] = 'fid';
-  $handler->display->display_options['fields']['field_artwork']['settings'] = array(
-    'image_style' => 'artwork_thumbnail',
-    'image_link' => 'content',
-  );
-  /* Field: Content: Title */
-  $handler->display->display_options['fields']['title']['id'] = 'title';
-  $handler->display->display_options['fields']['title']['table'] = 'node';
-  $handler->display->display_options['fields']['title']['field'] = 'title';
-  $handler->display->display_options['fields']['title']['label'] = '';
-  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
-  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  $handler->display->display_options['pane_category']['name'] = 'Pushtape';
+  $handler->display->display_options['pane_category']['weight'] = '0';
+
+  /* Display: All Releases pane */
+  $handler = $view->new_display('panel_pane', 'All Releases pane', 'panel_pane_1');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
+  $handler->display->display_options['pane_category']['name'] = 'Pushtape';
+  $handler->display->display_options['pane_category']['weight'] = '0';
   $export['releases'] = $view;
 
   $view = new view();

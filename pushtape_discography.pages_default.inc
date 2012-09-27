@@ -9,7 +9,7 @@
  */
 function pushtape_discography_default_page_manager_pages() {
   $page = new stdClass();
-  $page->disabled = TRUE; /* Edit this to true to make a default page disabled initially */
+  $page->disabled = FALSE; /* Edit this to true to make a default page disabled initially */
   $page->api_version = 1;
   $page->name = 'pushtape_albums';
   $page->task = 'page';
@@ -140,7 +140,7 @@ function pushtape_discography_default_page_manager_pages() {
   $pages['pushtape_albums'] = $page;
 
   $page = new stdClass();
-  $page->disabled = TRUE; /* Edit this to true to make a default page disabled initially */
+  $page->disabled = FALSE; /* Edit this to true to make a default page disabled initially */
   $page->api_version = 1;
   $page->name = 'pushtape_music_panel';
   $page->task = 'page';
@@ -270,7 +270,7 @@ function pushtape_discography_default_page_manager_pages() {
   $pages['pushtape_music_panel'] = $page;
 
   $page = new stdClass();
-  $page->disabled = TRUE; /* Edit this to true to make a default page disabled initially */
+  $page->disabled = FALSE; /* Edit this to true to make a default page disabled initially */
   $page->api_version = 1;
   $page->name = 'pushtape_tracks';
   $page->task = 'page';
