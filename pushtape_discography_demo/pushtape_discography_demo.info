@@ -1,16 +1,16 @@
 name = Pushtape Discography Demo
 description = Demo content for Pushtape Discography
 core = 7.x
-package = Pushtape Demos
+package = Pushtape Demo Content
 php = 5.2.4
-version = 7.x-1.0-dev
+version = 7.x-1.0-alpha3
 project = pushtape_discography_demo
-dependencies[] = features
 dependencies[] = defaultcontent
+dependencies[] = features
 dependencies[] = list
 dependencies[] = options
 dependencies[] = pushtape_discography
-datestamp = 1344040718
+datestamp = 1348717103
 features[content][] = pushtape-discography-demo-0
 features[content][] = pushtape-discography-demo-1
 features[content][] = pushtape-discography-demo-2
@@ -18,4 +18,3 @@ features[content][] = pushtape-discography-demo-3
 features[content][] = pushtape-discography-demo-4
 features[content][] = pushtape-discography-demo-5
 features[features_api][] = api:1
-
