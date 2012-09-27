@@ -1,0 +1,21 @@
+name = Pushtape Discography Demo
+description = Demo content for Pushtape Discography
+core = 7.x
+package = Pushtape Demos
+php = 5.2.4
+version = 7.x-1.0-dev
+project = panopoly_news_demo
+dependencies[] = features
+dependencies[] = defaultcontent
+dependencies[] = list
+dependencies[] = options
+dependencies[] = panopoly_news
+datestamp = 1344040718
+features[content][] = pushtape-discography-demo-0
+features[content][] = pushtape-discography-demo-1
+features[content][] = pushtape-discography-demo-2
+features[content][] = pushtape-discography-demo-3
+features[content][] = pushtape-discography-demo-4
+features[content][] = pushtape-discography-demo-5
+features[features_api][] = api:1
+

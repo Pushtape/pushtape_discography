@@ -1,0 +1,12 @@
+<?php
+
+/**
+ * Make sure that terms are not being added to the default content
+ */
+function pushtape_discography_demo_content_features_export_render_alter(&$module_name, &$node) {
+  // This will only work with a patched version of defaultcontent 7.x-1.x. 
+  // When it is committed we should probably update panopoly to defaultcontent dev. 
+  // 
+  // Follow progress here http://drupal.org/node/1754428
+  unset($node->field_featured_categories);
+}
