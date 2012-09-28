@@ -1,6 +1,8 @@
 core = 7.x
 api = 2
 
+projects[defaultcontent][version] = 1.x-dev
+projects[defaultcontent][subdir] = contrib
 projects[token][subdir] = contrib
 projects[entity][subdir] = contrib
 projects[entityreference][subdir] = contrib
