@@ -43,15 +43,15 @@ function pushtape_discography_configure_form($form, &$form_state) {
   );
 
   $form['pushtape_discography_config_group']['pushtape_discography_test'] = array(
-    '#title' => t('Trivia'),
+    '#title' => t('Choose something'),
     '#type' => 'select',
     '#required' => TRUE,
     '#options' => array(
-      '1' => 'Mark Antony',
-      '0' => 'Mark Anthony',
+      '1' => 'i want a',
+      '0' => 'definetly b',
     ),
     '#default_value' => variable_get('pushtape_discography_test', FALSE) ? '1' : '0',
-    '#description' => t('Which Mark is superior?'),
+    '#description' => t('Choose something'),
   );
 
   return system_settings_form($form);
