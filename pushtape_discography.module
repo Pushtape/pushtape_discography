@@ -15,10 +15,8 @@ function pushtape_discography_ctools_plugin_directory($module, $plugin) {
   }
 }
 
-<?php
-
 /*
- * provide configureation information to the apps about an enabled app
+ * provide configuration information to the apps about an enabled app
  *
  * One can register demo content as a sepeate module or as a set of callbacks
  * pushtape_discography_apps_app_info is a pushtape_discography that will only be called on
