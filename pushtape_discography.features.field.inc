@@ -416,9 +416,9 @@ function pushtape_discography_field_default_fields() {
       'display' => array(
         'default' => array(
           'label' => 'above',
-          'module' => 'pushtape_core',
+          'module' => 'pushtape_ui',
           'settings' => array(),
-          'type' => 'pushtape_core_ol_view',
+          'type' => 'pushtape_ui_ol_view',
           'weight' => '7',
         ),
         'teaser' => array(
