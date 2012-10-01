@@ -15,25 +15,59 @@ function pushtape_discography_ctools_plugin_directory($module, $plugin) {
   }
 }
 
-/**
- * Implementation of hook_apps_app_info()
+<?php
+
+/*
+ * provide configureation information to the apps about an enabled app
+ *
+ * One can register demo content as a sepeate module or as a set of callbacks
+ * pushtape_discography_apps_app_info is a pushtape_discography that will only be called on
+ * app modules
+ *
+ * RETURN: and associtive array
  */
 function pushtape_discography_apps_app_info() {
   return array(
-    'demo content description' => 'add some tracks and terms',
-    'demo content module' => 'pushtape_discography_demo',
-    'configure form' => 'pushtape_discography_configure_form',
+    //Demo Content
+    'demo content description' => 'This tells what add demo content will do it is placed on the configure form',
+    //The perfered way for an app to provide demo content is to have a module 
+    //that when enabled will add demo content, and when disabled will removed 
+    //demo content
+    //this module should be a submodule or part of the manifest dependent modules
+    'demo content module' => 'pushtape_discography_demo_content',
+
+    //If the demo content is provide in a differnt way one should provide the
+    //following callbacks
+    'demo content enabled' => 'pushtape_discography_demo_content_enabled', //should return True if demo content is on
+    'demo content enable' => 'pushtape_discography_demo_content_enable', //should turn on demo content and return true
+    'demo content disable' => 'pushtape_discography_demo_content_disable', //should turn off demo content and return true
+
+    'configure form' => 'pushtape_discography_app_configure_form', // This form will be render on the app config page
     'post install callback' => 'pushtape_discography_app_post_install', // This will be called after the app is enabled intialy or of the app has been uninstalled
-     'status callback' => 'pushtape_discography_app_status'
-  );
+    'status callback' => 'pushtape_discography_app_status'
+    /*
+    This call back is used to render a status table on the config page.  it should be an array with two keys (and on optional third) 
+    array(
+      'title' =>'Status'  //title of the table,
+      'items' => array(  //rows in the table with any keys
+        array(
+          'severity' =>    REQUIREMENT_WARNING, //REQUIREMENT_OK REQUIREMENT_INFO, REQUIREMENT_ERROR
+          'title' => 'Example',
+          'description' => t("Instrunctions for Example"),
+          'action' => array(l("Link to do something!", "")),
+        ),
+      ),
+      // headers are optional but these are the default
+      'headers' => array('severity', 'title', 'description', 'action')
+    );
+    serverity and 
+    */
 }
-
-
 
 /**
  * Config form for Pushtape_discography
  */
-function pushtape_discography_configure_form($form, &$form_state) {
+function pushtape_discography_app_configure_form($form, &$form_state) {
   $form = array();
   
   // This is currently just to test the apps config integration
