@@ -485,17 +485,12 @@ function pushtape_discography_views_default_views() {
   $handler->display->display_options['fields']['title']['label'] = '';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
-  /* Field: Content: Audio */
+  /* Field: Broken/missing handler */
   $handler->display->display_options['fields']['field_audio']['id'] = 'field_audio';
   $handler->display->display_options['fields']['field_audio']['table'] = 'field_data_field_audio';
   $handler->display->display_options['fields']['field_audio']['field'] = 'field_audio';
   $handler->display->display_options['fields']['field_audio']['label'] = '';
   $handler->display->display_options['fields']['field_audio']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_audio']['click_sort_column'] = 'fid';
-  $handler->display->display_options['fields']['field_audio']['type'] = 'file_rendered';
-  $handler->display->display_options['fields']['field_audio']['settings'] = array(
-    'file_view_mode' => 'media_small',
-  );
   $handler->display->display_options['defaults']['sorts'] = FALSE;
   /* Sort criterion: Content: Tracklist (field_tracklist:delta) */
   $handler->display->display_options['sorts']['delta']['id'] = 'delta';
@@ -529,6 +524,24 @@ function pushtape_discography_views_default_views() {
   );
   $handler->display->display_options['pane_category']['name'] = 'Pushtape';
   $handler->display->display_options['pane_category']['weight'] = '0';
+
+  /* Display: Select Tracks */
+  $handler = $view->new_display('entityreference', 'Select Tracks', 'entityreference_1');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['display_description'] = 'entity reference view tracklist formatter';
+  $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
+  $handler->display->display_options['pager']['type'] = 'none';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'entityreference_style';
+  $handler->display->display_options['style_options']['search_fields'] = array(
+    'title' => 'title',
+    'field_album' => 0,
+  );
+  $handler->display->display_options['defaults']['style_options'] = FALSE;
+  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
+  $handler->display->display_options['row_plugin'] = 'entityreference_fields';
+  $handler->display->display_options['defaults']['row_options'] = FALSE;
   $export['tracks'] = $view;
 
   return $export;
