@@ -30,6 +30,7 @@ projects[panels][subdir] = contrib
 
 projects[panelizer][version] = 3.0-rc1
 projects[panelizer][subdir] = contrib
+;projects[panelizer][patch][1412022] = http://drupal.org/files/panelizer-duplicates-1412022-18.patch
 
 projects[fieldable_panels_panes][version] = 1.2
 projects[fieldable_panels_panes][subdir] = contrib
