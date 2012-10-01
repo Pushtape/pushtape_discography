@@ -494,7 +494,7 @@ function pushtape_discography_views_default_views() {
   $handler->display->display_options['fields']['field_audio']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['field_audio']['type'] = 'file_rendered';
   $handler->display->display_options['fields']['field_audio']['settings'] = array(
-    'file_view_mode' => 'media_small',
+    'file_view_mode' => 'default',
   );
   $handler->display->display_options['defaults']['sorts'] = FALSE;
   /* Sort criterion: Content: Tracklist (field_tracklist:delta) */
