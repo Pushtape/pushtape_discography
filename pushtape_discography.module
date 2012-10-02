@@ -6,7 +6,6 @@
 
 include_once('pushtape_discography.features.inc');
 
-
 /**
  * Implements hook_apps_app_info()
  */
@@ -17,19 +16,32 @@ function pushtape_discography_apps_app_info() {
     'configure form' => 'pushtape_discography_configure_form',
     // 'post install callback' => 'pushtape_discography_app_post_install', // This will be called after the app is enabled intialy or of the app has been uninstalled
     // 'status callback' => 'pushtape_discography_app_status'
-  );
+    );
 }
 
 /**
- * App Configuration Form
+ * Config form for Pushtape_discography
  */
 function pushtape_discography_configure_form($form, &$form_state) {
   $form = array();
 
-  $form['submit'] = array(
-    '#type' => 'submit',
-    '#value' => t('Save'),
+  // This is currently just to test the apps config integration
+  $form['pushtape_discography_config_group'] = array(
+      '#type' => 'fieldset',
+      '#title' => "Configuration Options for pushtape_discography",
   );
 
-  return $form;
+  $form['pushtape_discography_config_group']['pushtape_discography_test'] = array(
+    '#title' => t('Choose something'),
+    '#type' => 'select',
+    '#required' => TRUE,
+    '#options' => array(
+      '1' => 'i want a',
+      '0' => 'definetly b',
+    ),
+    '#default_value' => variable_get('pushtape_discography_test', FALSE) ? '1' : '0',
+    '#description' => t('Choose something'),
+  );
+
+  return system_settings_form($form);
 }
