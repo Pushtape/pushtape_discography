@@ -870,14 +870,14 @@ function pushtape_discography_field_default_fields() {
       'label' => 'Credits',
       'required' => 0,
       'settings' => array(
-        'text_processing' => '1',
+        'text_processing' => '0',
         'user_register_form' => FALSE,
       ),
       'widget' => array(
         'active' => 1,
         'module' => 'text',
         'settings' => array(
-          'rows' => '2',
+          'rows' => '1',
         ),
         'type' => 'text_textarea',
         'weight' => '5',
