@@ -232,5 +232,19 @@ function pushtape_discography_strongarm() {
   );
   $export['panelizer_defaults_node_track'] = $strongarm;
 
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'pathauto_node_album_pattern';
+  $strongarm->value = 'release/[node:title]';
+  $export['pathauto_node_album_pattern'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'pathauto_node_track_pattern';
+  $strongarm->value = 'track/[node:title]';
+  $export['pathauto_node_track_pattern'] = $strongarm;
+
   return $export;
 }
