@@ -36,7 +36,7 @@ function pushtape_discography_field_default_fields() {
       'locked' => '0',
       'module' => 'text',
       'settings' => array(),
-      'translatable' => '1',
+      'translatable' => '0',
       'type' => 'text_with_summary',
     ),
     'field_instance' => array(
@@ -275,7 +275,6 @@ function pushtape_discography_field_default_fields() {
   );
 
 
-
   // Exported field: 'node-album-field_tracklist'.
   $fields['node-album-field_tracklist'] = array(
     'field_config' => array(
@@ -390,7 +389,7 @@ function pushtape_discography_field_default_fields() {
       'locked' => '0',
       'module' => 'text',
       'settings' => array(),
-      'translatable' => '1',
+      'translatable' => '0',
       'type' => 'text_with_summary',
     ),
     'field_instance' => array(
@@ -1059,7 +1058,6 @@ function pushtape_discography_field_default_fields() {
   t('Lyrics');
   t('Notes');
   t('Release date');
-  t('Released');
   t('Tags');
   t('Tracklist');
 

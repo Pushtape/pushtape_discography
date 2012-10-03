@@ -10,7 +10,7 @@
 function pushtape_discography_taxonomy_default_vocabularies() {
   return array(
     'artist' => array(
-      'name' => 'artist',
+      'name' => 'Artist',
       'machine_name' => 'artist',
       'description' => '',
       'hierarchy' => '0',
