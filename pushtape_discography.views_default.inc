@@ -12,7 +12,7 @@ function pushtape_discography_views_default_views() {
 
   $view = new view();
   $view->name = 'albums';
-  $view->description = '';
+  $view->description = 'Lists Albums';
   $view->tag = 'pushtape';
   $view->base_table = 'node';
   $view->human_name = 'albums';
@@ -262,7 +262,6 @@ function pushtape_discography_views_default_views() {
   $handler = $view->new_display('page', 'Page', 'page');
   $handler->display->display_options['defaults']['title'] = FALSE;
   $handler->display->display_options['title'] = 'Discography';
-  $handler->display->display_options['enabled'] = FALSE;
   $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
   $handler->display->display_options['path'] = 'discography';
   $handler->display->display_options['menu']['type'] = 'normal';
