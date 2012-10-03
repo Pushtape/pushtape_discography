@@ -20,7 +20,7 @@ function pushtape_discography_panelizer_defaults() {
   $panelizer->no_blocks = FALSE;
   $panelizer->css_id = 'album-page';
   $panelizer->css = '';
-  $panelizer->pipeline = 'ipep';
+  $panelizer->pipeline = 'ipe';
   $panelizer->contexts = array();
   $panelizer->relationships = array();
   $panelizer->access = array();
@@ -217,7 +217,7 @@ function pushtape_discography_panelizer_defaults() {
   $panelizer->no_blocks = FALSE;
   $panelizer->css_id = 'track-page';
   $panelizer->css = '';
-  $panelizer->pipeline = 'ipep';
+  $panelizer->pipeline = 'ipe';
   $panelizer->contexts = array();
   $panelizer->relationships = array();
   $panelizer->access = array();
