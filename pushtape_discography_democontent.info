@@ -1,5 +1,5 @@
 name = Pushtape Discography Demo Content
-description = Create a demo album
+description = Create demo tracks
 core = 7.x
 package = Pushtape Demo Content
 php = 5.2.4
@@ -10,7 +10,7 @@ dependencies[] = features
 dependencies[] = pushtape_discography
 dependencies[] = strongarm
 dependencies[] = uuid
-features[content][] = pushtape-discography-defaultcontent-1
+datestamp = 1349301890
 features[content][] = pushtape-discography-defaultcontent-2
 features[content][] = pushtape-discography-defaultcontent-3
 features[content][] = pushtape-discography-defaultcontent-4
