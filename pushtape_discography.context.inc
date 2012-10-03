@@ -26,35 +26,47 @@ function pushtape_discography_context_default_contexts() {
   $context->reactions = array(
     'block' => array(
       'blocks' => array(
-        'search-form' => array(
-          'module' => 'search',
-          'delta' => 'form',
-          'region' => 'user_second',
+        'system-main' => array(
+          'module' => 'system',
+          'delta' => 'main',
+          'region' => 'content',
+          'weight' => '0',
+        ),
+        'system-navigation' => array(
+          'module' => 'system',
+          'delta' => 'navigation',
+          'region' => 'user_first',
           'weight' => '-10',
         ),
-        'delta_blocks-branding' => array(
-          'module' => 'delta_blocks',
-          'delta' => 'branding',
-          'region' => 'branding',
+        'system-user-menu' => array(
+          'module' => 'system',
+          'delta' => 'user-menu',
+          'region' => 'user_second',
           'weight' => '-10',
         ),
         'delta_blocks-logo' => array(
           'module' => 'delta_blocks',
           'delta' => 'logo',
-          'region' => 'banner',
-          'weight' => 0,
+          'region' => 'branding',
+          'weight' => '-10',
         ),
-        'system-main' => array(
-          'module' => 'system',
-          'delta' => 'main',
-          'region' => 'content',
-          'weight' => 0,
+        'delta_blocks-site-name' => array(
+          'module' => 'delta_blocks',
+          'delta' => 'site-name',
+          'region' => 'branding',
+          'weight' => '-10',
+        ),
+        'delta_blocks-site-slogan' => array(
+          'module' => 'delta_blocks',
+          'delta' => 'site-slogan',
+          'region' => 'branding',
+          'weight' => '-10',
         ),
         'system-main-menu' => array(
           'module' => 'system',
           'delta' => 'main-menu',
           'region' => 'sidebar_first',
-          'weight' => 1,
+          'weight' => '1',
         ),
       ),
     ),

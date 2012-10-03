@@ -274,7 +274,6 @@ function pushtape_discography_field_default_fields() {
     ),
   );
 
-
   // Exported field: 'node-album-field_tracklist'.
   $fields['node-album-field_tracklist'] = array(
     'field_config' => array(
@@ -1058,7 +1057,6 @@ function pushtape_discography_field_default_fields() {
   t('Lyrics');
   t('Notes');
   t('Release date');
-  t('Tags');
   t('Tracklist');
 
   return $fields;
