@@ -13,7 +13,7 @@ function pushtape_discography_views_default_views() {
   $view = new view();
   $view->name = 'albums';
   $view->description = '';
-  $view->tag = 'default';
+  $view->tag = 'pushtape';
   $view->base_table = 'node';
   $view->human_name = 'albums';
   $view->core = 7;
@@ -133,7 +133,7 @@ function pushtape_discography_views_default_views() {
   $view = new view();
   $view->name = 'releases';
   $view->description = '';
-  $view->tag = 'default';
+  $view->tag = 'pushtape';
   $view->base_table = 'node';
   $view->human_name = 'releases';
   $view->core = 7;
@@ -284,7 +284,7 @@ function pushtape_discography_views_default_views() {
   $view = new view();
   $view->name = 'tracks';
   $view->description = '';
-  $view->tag = 'default';
+  $view->tag = 'pushtape';
   $view->base_table = 'node';
   $view->human_name = 'tracks';
   $view->core = 7;
