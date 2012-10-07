@@ -30,16 +30,10 @@ projects[panels][subdir] = contrib
 
 projects[panelizer][version] = 3.0-rc1
 projects[panelizer][subdir] = contrib
-projects[panelizer][patch][1412022] = http://drupal.org/files/panelizer-duplicates-1412022-18.patch
+projects[panelizer][patch][1412022] = http://drupal.org/files/panelizer-duplicates-1412022-22.patch
 
 projects[fieldable_panels_panes][version] = 1.2
 projects[fieldable_panels_panes][subdir] = contrib
 
 projects[pm_existing_pages][version] = 1.4
 projects[pm_existing_pages][subdir] = contrib
-
-projects[entity_reference_view_field_formatter][type] = "module"
-projects[entity_reference_view_field_formatter][download][type] = "git"
-projects[entity_reference_view_field_formatter][download][url] = "http://git.drupal.org/sandbox/katbailey/1361118.git"
-projects[entity_reference_view_field_formatter][download][branch] = "master"
-
