@@ -1,0 +1,65 @@
+<?php 
+
+/**
+ * Implements hook_modules_enable()
+ * 
+ * Running this instead of hook_enable() allows default content to be loaded first
+ * 
+ */
+function pushtape_discography_demo_modules_enabled($modules) {
+  $vid = db_select('taxonomy_vocabulary', 't')
+  ->fields('t', array('vid'))
+  ->condition('machine_name', 'panopoly_categories', '=')
+  ->execute()
+  ->fetchField();
+
+  // get the terms that are in code
+  module_load_include('inc', 'pushtape_discography_demo', 'pushtape_discography_demo.terms');
+  $terms = pushtape_discography_demo_terms();
+
+  // load them and keep track of IDs
+  $tids = array();
+  foreach ($terms as $term) {
+    $term->vid = $vid;
+    taxonomy_term_save($term);
+    $tids[] = $term->tid;
+  }
+  
+  // attach random terms to default content
+  // these are not in the DB yet
+  $nids = db_select('defaultcontent', 'd')
+  ->fields('d', array('nid'))
+  ->condition('name', db_like('pushtape-discography-demo') . '%', 'LIKE')
+  ->execute()
+  ->fetchCol();
+
+  foreach ($nids as $row => $nid) {
+    $node = node_load($nid);
+    for ($i = 1; $i <= (rand(0, 15)); $i++) {
+      $node->field_featured_categories['und'][] = array('tid' => $tids[array_rand($tids)]);
+    }
+    node_save($node);
+  }
+}
+
+/**
+ * Implements hook_disable()
+ */
+function pushtape_discography_demo_disable() {
+  // get the terms that are in code
+  module_load_include('inc', 'pushtape_discography_demo', 'pushtape_discography_demo.terms');
+  $terms = pushtape_discography_demo_terms();
+  
+  // load them to delete them
+  $tids = array();
+  foreach ($terms as $term) {
+    $tid= db_select('taxonomy_term_data', 't')
+    ->fields('t', array('tid'))
+    ->condition('name', $term->name, '=')
+    ->execute()
+    ->fetchField();
+    
+    $term->vid = $vid;
+    taxonomy_term_delete($tid);
+  }
+}
