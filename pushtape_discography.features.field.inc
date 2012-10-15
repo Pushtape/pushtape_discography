@@ -48,14 +48,24 @@ function pushtape_discography_field_default_fields() {
         'default' => array(
           'label' => 'above',
           'module' => 'text',
-          'settings' => array(),
+          'settings' => array(
+            'edit' => array(
+              'editability' => 'direct',
+              'wysiwyg' => TRUE,
+            ),
+          ),
           'type' => 'text_default',
           'weight' => '2',
         ),
         'full' => array(
           'label' => 'hidden',
           'module' => 'text',
-          'settings' => array(),
+          'settings' => array(
+            'edit' => array(
+              'editability' => 'direct',
+              'wysiwyg' => TRUE,
+            ),
+          ),
           'type' => 'text_default',
           'weight' => '3',
         ),
@@ -63,6 +73,10 @@ function pushtape_discography_field_default_fields() {
           'label' => 'hidden',
           'module' => 'text',
           'settings' => array(
+            'edit' => array(
+              'editability' => 'disabled',
+              'wysiwyg' => FALSE,
+            ),
             'trim_length' => 600,
           ),
           'type' => 'text_summary_or_trimmed',
@@ -135,7 +149,12 @@ function pushtape_discography_field_default_fields() {
         'default' => array(
           'label' => 'inline',
           'module' => 'taxonomy',
-          'settings' => array(),
+          'settings' => array(
+            'edit' => array(
+              'editability' => 'form',
+              'wysiwyg' => FALSE,
+            ),
+          ),
           'type' => 'taxonomy_term_reference_link',
           'weight' => '4',
         ),
@@ -205,6 +224,10 @@ function pushtape_discography_field_default_fields() {
           'label' => 'hidden',
           'module' => 'image',
           'settings' => array(
+            'edit' => array(
+              'editability' => 'form',
+              'wysiwyg' => FALSE,
+            ),
             'image_link' => '',
             'image_style' => 'artwork_medium',
           ),
@@ -215,6 +238,10 @@ function pushtape_discography_field_default_fields() {
           'label' => 'hidden',
           'module' => 'image',
           'settings' => array(
+            'edit' => array(
+              'editability' => 'form',
+              'wysiwyg' => FALSE,
+            ),
             'image_link' => '',
             'image_style' => 'artwork_medium',
           ),
@@ -271,88 +298,7 @@ function pushtape_discography_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-album-field_tags'.
-  $fields['node-album-field_tags'] = array(
-    'field_config' => array(
-      'active' => '1',
-      'cardinality' => '-1',
-      'deleted' => '0',
-      'entity_types' => array(),
-      'field_name' => 'field_tags',
-      'foreign keys' => array(
-        'tid' => array(
-          'columns' => array(
-            'tid' => 'tid',
-          ),
-          'table' => 'taxonomy_term_data',
-        ),
-      ),
-      'indexes' => array(
-        'tid' => array(
-          0 => 'tid',
-        ),
-      ),
-      'locked' => '0',
-      'module' => 'taxonomy',
-      'settings' => array(
-        'allowed_values' => array(
-          0 => array(
-            'vocabulary' => 'tags',
-            'parent' => 0,
-          ),
-        ),
-      ),
-      'translatable' => '0',
-      'type' => 'taxonomy_term_reference',
-    ),
-    'field_instance' => array(
-      'bundle' => 'album',
-      'default_value' => NULL,
-      'deleted' => '0',
-      'description' => '',
-      'display' => array(
-        'default' => array(
-          'label' => 'inline',
-          'module' => 'taxonomy',
-          'settings' => array(),
-          'type' => 'taxonomy_term_reference_link',
-          'weight' => '3',
-        ),
-        'full' => array(
-          'label' => 'hidden',
-          'module' => 'taxonomy',
-          'settings' => array(),
-          'type' => 'taxonomy_term_reference_link',
-          'weight' => '5',
-        ),
-        'teaser' => array(
-          'label' => 'above',
-          'settings' => array(),
-          'type' => 'hidden',
-          'weight' => 0,
-        ),
-      ),
-      'entity_type' => 'node',
-      'field_name' => 'field_tags',
-      'label' => 'Tags',
-      'required' => 0,
-      'settings' => array(
-        'user_register_form' => FALSE,
-      ),
-      'widget' => array(
-        'active' => 0,
-        'module' => 'taxonomy',
-        'settings' => array(
-          'autocomplete_path' => 'taxonomy/autocomplete',
-          'size' => 60,
-        ),
-        'type' => 'taxonomy_autocomplete',
-        'weight' => '6',
-      ),
-    ),
-  );
-
-  // Exported field: 'node-album-field_tracklist'.
+   // Exported field: 'node-album-field_tracklist'.
   $fields['node-album-field_tracklist'] = array(
     'field_config' => array(
       'active' => '1',
@@ -407,9 +353,11 @@ function pushtape_discography_field_default_fields() {
       'display' => array(
         'default' => array(
           'label' => 'above',
-          'module' => 'pushtape_ui',
-          'settings' => array(),
-          'type' => 'pushtape_ui_ol_view',
+          'module' => 'entityreference',
+          'settings' => array(
+            'link' => FALSE,
+          ),
+          'type' => 'entityreference_label',
           'weight' => '1',
         ),
         'teaser' => array(
@@ -478,14 +426,24 @@ function pushtape_discography_field_default_fields() {
         'default' => array(
           'label' => 'above',
           'module' => 'text',
-          'settings' => array(),
+          'settings' => array(
+            'edit' => array(
+              'editability' => 'direct',
+              'wysiwyg' => TRUE,
+            ),
+          ),
           'type' => 'text_default',
           'weight' => '4',
         ),
         'full' => array(
           'label' => 'hidden',
           'module' => 'text',
-          'settings' => array(),
+          'settings' => array(
+            'edit' => array(
+              'editability' => 'direct',
+              'wysiwyg' => TRUE,
+            ),
+          ),
           'type' => 'text_default',
           'weight' => '0',
         ),
@@ -493,6 +451,10 @@ function pushtape_discography_field_default_fields() {
           'label' => 'hidden',
           'module' => 'text',
           'settings' => array(
+            'edit' => array(
+              'editability' => 'disabled',
+              'wysiwyg' => FALSE,
+            ),
             'trim_length' => 600,
           ),
           'type' => 'text_summary_or_trimmed',
@@ -651,7 +613,12 @@ function pushtape_discography_field_default_fields() {
         'default' => array(
           'label' => 'inline',
           'module' => 'taxonomy',
-          'settings' => array(),
+          'settings' => array(
+            'edit' => array(
+              'editability' => 'form',
+              'wysiwyg' => FALSE,
+            ),
+          ),
           'type' => 'taxonomy_term_reference_link',
           'weight' => '10',
         ),
@@ -721,6 +688,10 @@ function pushtape_discography_field_default_fields() {
           'label' => 'hidden',
           'module' => 'image',
           'settings' => array(
+            'edit' => array(
+              'editability' => 'form',
+              'wysiwyg' => FALSE,
+            ),
             'image_link' => '',
             'image_style' => 'artwork_medium',
           ),
@@ -731,6 +702,10 @@ function pushtape_discography_field_default_fields() {
           'label' => 'hidden',
           'module' => 'image',
           'settings' => array(
+            'edit' => array(
+              'editability' => 'form',
+              'wysiwyg' => FALSE,
+            ),
             'image_link' => '',
             'image_style' => 'artwork_medium',
           ),
@@ -808,14 +783,24 @@ function pushtape_discography_field_default_fields() {
         'default' => array(
           'label' => 'above',
           'module' => 'text',
-          'settings' => array(),
+          'settings' => array(
+            'edit' => array(
+              'editability' => 'direct',
+              'wysiwyg' => TRUE,
+            ),
+          ),
           'type' => 'text_default',
           'weight' => '6',
         ),
         'full' => array(
           'label' => 'above',
           'module' => 'text',
-          'settings' => array(),
+          'settings' => array(
+            'edit' => array(
+              'editability' => 'direct',
+              'wysiwyg' => TRUE,
+            ),
+          ),
           'type' => 'text_default',
           'weight' => '3',
         ),
@@ -890,14 +875,24 @@ function pushtape_discography_field_default_fields() {
         'default' => array(
           'label' => 'inline',
           'module' => 'list',
-          'settings' => array(),
+          'settings' => array(
+            'edit' => array(
+              'editability' => 'form',
+              'wysiwyg' => FALSE,
+            ),
+          ),
           'type' => 'list_default',
           'weight' => '7',
         ),
         'full' => array(
           'label' => 'above',
           'module' => 'list',
-          'settings' => array(),
+          'settings' => array(
+            'edit' => array(
+              'editability' => 'form',
+              'wysiwyg' => FALSE,
+            ),
+          ),
           'type' => 'list_default',
           'weight' => '6',
         ),
@@ -961,14 +956,24 @@ function pushtape_discography_field_default_fields() {
         'default' => array(
           'label' => 'above',
           'module' => 'text',
-          'settings' => array(),
+          'settings' => array(
+            'edit' => array(
+              'editability' => 'direct',
+              'wysiwyg' => TRUE,
+            ),
+          ),
           'type' => 'text_default',
           'weight' => '5',
         ),
         'full' => array(
           'label' => 'above',
           'module' => 'text',
-          'settings' => array(),
+          'settings' => array(
+            'edit' => array(
+              'editability' => 'direct',
+              'wysiwyg' => TRUE,
+            ),
+          ),
           'type' => 'text_default',
           'weight' => '2',
         ),
@@ -999,88 +1004,7 @@ function pushtape_discography_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-track-field_tags'.
-  $fields['node-track-field_tags'] = array(
-    'field_config' => array(
-      'active' => '1',
-      'cardinality' => '-1',
-      'deleted' => '0',
-      'entity_types' => array(),
-      'field_name' => 'field_tags',
-      'foreign keys' => array(
-        'tid' => array(
-          'columns' => array(
-            'tid' => 'tid',
-          ),
-          'table' => 'taxonomy_term_data',
-        ),
-      ),
-      'indexes' => array(
-        'tid' => array(
-          0 => 'tid',
-        ),
-      ),
-      'locked' => '0',
-      'module' => 'taxonomy',
-      'settings' => array(
-        'allowed_values' => array(
-          0 => array(
-            'vocabulary' => 'tags',
-            'parent' => 0,
-          ),
-        ),
-      ),
-      'translatable' => '0',
-      'type' => 'taxonomy_term_reference',
-    ),
-    'field_instance' => array(
-      'bundle' => 'track',
-      'default_value' => NULL,
-      'deleted' => '0',
-      'description' => '',
-      'display' => array(
-        'default' => array(
-          'label' => 'inline',
-          'module' => 'taxonomy',
-          'settings' => array(),
-          'type' => 'taxonomy_term_reference_link',
-          'weight' => '9',
-        ),
-        'full' => array(
-          'label' => 'above',
-          'module' => 'taxonomy',
-          'settings' => array(),
-          'type' => 'taxonomy_term_reference_link',
-          'weight' => '4',
-        ),
-        'teaser' => array(
-          'label' => 'above',
-          'settings' => array(),
-          'type' => 'hidden',
-          'weight' => 0,
-        ),
-      ),
-      'entity_type' => 'node',
-      'field_name' => 'field_tags',
-      'label' => 'Tags',
-      'required' => 0,
-      'settings' => array(
-        'user_register_form' => FALSE,
-      ),
-      'widget' => array(
-        'active' => 1,
-        'module' => 'taxonomy',
-        'settings' => array(
-          'autocomplete_path' => 'taxonomy/autocomplete',
-          'size' => 60,
-        ),
-        'type' => 'taxonomy_autocomplete',
-        'weight' => '8',
-      ),
-    ),
-  );
-
-  // Translatables
+    // Translatables
   // Included for use with string extractors like potx.
   t('(Leave blank to use album artist.)');
   t('Album');
@@ -1092,7 +1016,6 @@ function pushtape_discography_field_default_fields() {
   t('License');
   t('Lyrics');
   t('Notes');
-  t('Tags');
   t('Tracklist');
 
   return $fields;
