@@ -316,7 +316,7 @@ function pushtape_discography_panelizer_defaults() {
       'delta_offset' => '0',
       'delta_reversed' => FALSE,
       'formatter_settings' => array(
-        'file_view_mode' => 'media_large',
+        'file_view_mode' => 'track_player',
         'inline' => 0,
         'visualization' => 1,
         'waveform' => 1,
