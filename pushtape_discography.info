@@ -14,7 +14,6 @@ dependencies[] = menu
 dependencies[] = page_manager
 dependencies[] = panelizer
 dependencies[] = panels
-dependencies[] = panopoly_core
 dependencies[] = pathauto
 dependencies[] = pushtape_ui
 dependencies[] = strongarm
