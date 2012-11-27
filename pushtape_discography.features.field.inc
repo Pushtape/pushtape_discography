@@ -947,7 +947,7 @@ function pushtape_discography_field_default_fields() {
       'bundle' => 'track',
       'default_value' => NULL,
       'deleted' => '0',
-      'description' => '',
+      'description' => '(Leave blank to use album artist)',
       'display' => array(
         'default' => array(
           'label' => 'above',
@@ -1293,7 +1293,7 @@ function pushtape_discography_field_default_fields() {
       'bundle' => 'track',
       'default_value' => NULL,
       'deleted' => '0',
-      'description' => '',
+      'description' => '(Leave blank to use album label)',
       'display' => array(
         'default' => array(
           'label' => 'above',
@@ -1539,7 +1539,7 @@ function pushtape_discography_field_default_fields() {
     'field_instance' => array(
       'bundle' => 'track',
       'deleted' => '0',
-      'description' => '',
+      'description' => '(Leave blank to use album release date)',
       'display' => array(
         'default' => array(
           'label' => 'above',
@@ -1603,6 +1603,9 @@ function pushtape_discography_field_default_fields() {
 
   // Translatables
   // Included for use with string extractors like potx.
+  t('(Leave blank to use album artist)');
+  t('(Leave blank to use album label)');
+  t('(Leave blank to use album release date)');
   t('Album');
   t('Album artwork');
   t('Album notes');
