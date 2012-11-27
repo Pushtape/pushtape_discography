@@ -17,6 +17,14 @@ function pushtape_discography_taxonomy_default_vocabularies() {
       'module' => 'taxonomy',
       'weight' => '0',
     ),
+    'label' => array(
+      'name' => 'Label',
+      'machine_name' => 'label',
+      'description' => '',
+      'hierarchy' => '0',
+      'module' => 'taxonomy',
+      'weight' => '0',
+    ),
     'tags' => array(
       'name' => 'Tags',
       'machine_name' => 'tags',

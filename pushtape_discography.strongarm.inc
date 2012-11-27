@@ -197,6 +197,11 @@ function pushtape_discography_strongarm() {
         'default' => 0,
         'choice' => 0,
       ),
+      'featured' => array(
+        'status' => 1,
+        'default' => 1,
+        'choice' => 0,
+      ),
     ),
   );
   $export['panelizer_defaults_node_album'] = $strongarm;
@@ -226,6 +231,11 @@ function pushtape_discography_strongarm() {
       'featured' => array(
         'status' => 0,
         'default' => 0,
+        'choice' => 0,
+      ),
+      'featured' => array(
+        'status' => 1,
+        'default' => 1,
         'choice' => 0,
       ),
     ),
