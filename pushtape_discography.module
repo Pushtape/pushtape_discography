@@ -7,120 +7,41 @@
 include_once('pushtape_discography.features.inc');
 
 /**
- * Implementation of hook_ctools_plugin_directory().
- */
-function pushtape_discography_ctools_plugin_directory($module, $plugin) {
-  if ($module == 'panels' && $plugin == 'display_renderers') {
-    return 'plugins/' . $plugin;
+ * Implements hook_panelizer_default_types_alter() not needed anymore
+function pushtape_discography_panelizer_defaults_alter(&$defaults) {
+  // Require the panels panelizer include from features since 
+  // features doesn't support hook_panelizer_defaults() correctly.
+  // See https://drupal.org/node/1427150 for more on that.
+  require_once('pushtape_discography.panelizer.inc');
+  foreach(pushtape_discography_panelizer_defaults() as $name => $default) {
+    $defaults[$name] = $default;
   }
 }
-
-/*
- * provide configuration information to the apps about an enabled app
- *
- * One can register demo content as a sepeate module or as a set of callbacks
- * pushtape_discography_apps_app_info is a pushtape_discography that will only be called on
- * app modules
- *
- * RETURN: and associtive array
+ */
+ 
+/**
+ * Implementation of hook_apps_app_info()
  */
 function pushtape_discography_apps_app_info() {
   return array(
-    //Demo Content
-    'demo content description' => 'This tells what add demo content will do it is placed on the configure form',
-    //The perfered way for an app to provide demo content is to have a module 
-    //that when enabled will add demo content, and when disabled will removed 
-    //demo content
-    //this module should be a submodule or part of the manifest dependent modules
-    'demo content module' => 'pushtape_discography_demo_content',
-
-    //If the demo content is provide in a differnt way one should provide the
-    //following callbacks
-    //'demo content enabled' => 'pushtape_discography_demo_content_enabled', //should return True if demo content is on
-    //'demo content enable' => 'pushtape_discography_demo_content_enable', //should turn on demo content and return true
-    //'demo content disable' => 'pushtape_discography_demo_content_disable', //should turn off demo content and return true
-
-    'configure form' => 'pushtape_discography_app_configure_form', // This form will be render on the app config page
-
-    'post install callback' => 'pushtape_discography_app_post_install', // This will be called after the app is enabled intialy or of the app has been uninstalled
-    'status callback' => 'pushtape_discography_app_status'
-    
-    // This call back is used to render a status table on the config page.  it should be an array with two keys (and on optional third) 
-
-    //'post install callback' => 'pushtape_discography_app_post_install', // This will be called after the app is enabled intialy or of the app has been uninstalled
-    //'status callback' => 'pushtape_discography_app_status'
-
-    //This call back is used to render a status table on the config page.  it should be an array with two keys (and on optional third) 
-/*
-    array(
-      'title' =>'Status'  //title of the table,
-      'items' => array(  //rows in the table with any keys
-        array(
-          'severity' =>    REQUIREMENT_WARNING, //REQUIREMENT_OK REQUIREMENT_INFO, REQUIREMENT_ERROR
-          'title' => 'Example',
-          'description' => t("Instrunctions for Example"),
-          'action' => array(l("Link to do something!", "")),
-        ),
-      ),
-      // headers are optional but these are the default     serverity and 
-      'headers' => array('severity', 'title', 'description', 'action')
-*/
-    );
-
-
+    'demo content description' => 'add some tracks and terms',
+    'demo content module' => 'pushtape_discography_democontent',
+    'configure form' => 'pushtape_discography_configure_form',
+    // 'post install callback' => 'pushtape_discography_app_post_install', // This will be called after the app is enabled intialy or of the app has been uninstalled
+    // 'status callback' => 'pushtape_discography_app_status'
+  );
 }
 
-/**
- * Config form for Pushtape_discography
+/** 
+ * App Configuration Form
  */
-function pushtape_discography_app_configure_form($form, &$form_state) {
+function pushtape_discography_configure_form($form, &$form_state) {
   $form = array();
-  
-  // This is currently just to test the apps config integration
-  $form['pushtape_discography_config_group'] = array(
-      '#type' => 'fieldset',
-      '#title' => "Configuration Options for pushtape_discography",
+
+  $form['submit'] = array(
+    '#type' => 'submit',
+    '#value' => t('Save'),
   );
 
-  $form['pushtape_discography_config_group']['pushtape_discography_test'] = array(
-    '#title' => t('Choose something'),
-    '#type' => 'select',
-    '#required' => TRUE,
-    '#options' => array(
-      '1' => 'i want a',
-      '0' => 'definetly b',
-    ),
-    '#default_value' => variable_get('pushtape_discography_test', FALSE) ? '1' : '0',
-    '#description' => t('Choose something'),
-  );
-
-  return system_settings_form($form);
-}
-
-/**
- * Preprocess the panels_ipe_toolbar to change/style text for IPE buttons
- */
-function pushtape_discography_preprocess_panels_ipe_toolbar(&$vars) {
-  foreach ($vars['buttons'] as $panel_context_id => $panel_context) {
-    if (array_key_exists('panels-ipe-add-content', $panel_context) || array_key_exists('panels-ipe-configure-app', $panel_context)) {
-      foreach ($panel_context as $button_name => $button) {
-        switch ($button_name) {
-          case 'panels-ipe-startedit':
-            $vars['buttons'][$panel_context_id][$button_name]['#title'] = 'Organize this content';
-            unset($vars['buttons'][$panel_context_id][$button_name]['#attributes']['class']);
-            $vars['buttons'][$panel_context_id][$button_name]['#attributes']['class'] = array('panels-ipe-style', 'panels-ipe-pseudobutton');
-            break;
-          case 'panels-ipe-change-layout':
-            $vars['buttons'][$panel_context_id][$button_name]['#title'] = 'Change this layout';
-            break;
-          case 'panels-ipe-add-content':
-            $pull = array($button_name => $vars['buttons'][$panel_context_id][$button_name]);
-            unset($vars['buttons'][$panel_context_id][$button_name]);
-            break;
-        }
-      }
-      // Move add button to front of array
-      $vars['buttons'][$panel_context_id] = array_merge($pull, $vars['buttons'][$panel_context_id]);
-    }
-  }
+   return $form;
 }
