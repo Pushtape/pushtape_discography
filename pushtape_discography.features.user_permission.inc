@@ -128,24 +128,6 @@ function pushtape_discography_user_default_permissions() {
     'module' => 'node',
   );
 
-  // Exported permission: use text format filtered_html.
-  $permissions['use text format filtered_html'] = array(
-    'name' => 'use text format filtered_html',
-    'roles' => array(
-      0 => 'artist',
-    ),
-    'module' => 'filter',
-  );
-
-  // Exported permission: use text format full_html.
-  $permissions['use text format full_html'] = array(
-    'name' => 'use text format full_html',
-    'roles' => array(
-      0 => 'artist',
-    ),
-    'module' => 'filter',
-  );
-
   // Exported permission: view own unpublished content.
   $permissions['view own unpublished content'] = array(
     'name' => 'view own unpublished content',
