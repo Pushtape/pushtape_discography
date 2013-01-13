@@ -40,6 +40,7 @@ features[field][] = node-track-field_license
 features[field][] = node-track-field_lyrics
 features[field][] = node-track-field_release_date
 features[field][] = node-track-field_tags
+features[field][] = taxonomy_term-artists-field_artist_image
 features[image][] = artwork_huge
 features[image][] = artwork_large
 features[image][] = artwork_medium
