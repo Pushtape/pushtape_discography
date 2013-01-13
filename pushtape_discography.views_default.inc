@@ -52,7 +52,7 @@ function pushtape_discography_views_default_views() {
   $handler->display->display_options['fields']['field_artwork']['hide_alter_empty'] = FALSE;
   $handler->display->display_options['fields']['field_artwork']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['field_artwork']['settings'] = array(
-    'image_style' => 'artwork_small',
+    'image_style' => 'artwork_large',
     'image_link' => 'content',
   );
   /* Field: Content: Title */
@@ -284,6 +284,11 @@ function pushtape_discography_views_default_views() {
   $handler->display->display_options['style_plugin'] = 'list';
   $handler->display->display_options['style_options']['type'] = 'ol';
   $handler->display->display_options['row_plugin'] = 'fields';
+  $handler->display->display_options['row_options']['inline'] = array(
+    'title' => 'title',
+    'field_artist' => 'field_artist',
+  );
+  $handler->display->display_options['row_options']['separator'] = ' - ';
   /* Relationship: Entity Reference: Referencing entity */
   $handler->display->display_options['relationships']['reverse_field_tracklist_node']['id'] = 'reverse_field_tracklist_node';
   $handler->display->display_options['relationships']['reverse_field_tracklist_node']['table'] = 'node';
@@ -297,6 +302,13 @@ function pushtape_discography_views_default_views() {
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+  /* Field: Content: Artist */
+  $handler->display->display_options['fields']['field_artist']['id'] = 'field_artist';
+  $handler->display->display_options['fields']['field_artist']['table'] = 'field_data_field_artist';
+  $handler->display->display_options['fields']['field_artist']['field'] = 'field_artist';
+  $handler->display->display_options['fields']['field_artist']['label'] = '';
+  $handler->display->display_options['fields']['field_artist']['element_type'] = 'span';
+  $handler->display->display_options['fields']['field_artist']['element_label_colon'] = FALSE;
   /* Sort criterion: Content: Tracklist (field_tracklist:delta) */
   $handler->display->display_options['sorts']['delta']['id'] = 'delta';
   $handler->display->display_options['sorts']['delta']['table'] = 'field_data_field_tracklist';
@@ -320,6 +332,21 @@ function pushtape_discography_views_default_views() {
 
   /* Display: Block */
   $handler = $view->new_display('block', 'Block', 'block_1');
+  $handler->display->display_options['enabled'] = FALSE;
+  $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Content: Title */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'node';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['label'] = '';
+  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
+  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+
+  /* Display: Various Artists */
+  $handler = $view->new_display('panel_pane', 'Various Artists', 'tracklist_various');
+  $handler->display->display_options['display_description'] = 'Alternative tracklist display pane for albums with multiple artists';
   $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
   $export['tracklist'] = $view;
 
