@@ -18,7 +18,6 @@ dependencies[] = link
 dependencies[] = list
 dependencies[] = menu
 dependencies[] = pathauto
-dependencies[] = pushtape_audio
 dependencies[] = pushtape_ui
 dependencies[] = taxonomy
 dependencies[] = views
