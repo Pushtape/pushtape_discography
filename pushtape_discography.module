@@ -5,6 +5,8 @@
  */
 
 include_once('pushtape_discography.features.inc');
+<<<<<<< HEAD
+=======
 
 /**
  * Implements hook_panelizer_default_types_alter() not needed anymore
@@ -45,3 +47,4 @@ function pushtape_discography_configure_form($form, &$form_state) {
 
    return $form;
 }
+>>>>>>> 3987556bc98acdce97c17b41c91325fcec478801

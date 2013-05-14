@@ -9,11 +9,15 @@
  */
 function pushtape_discography_ctools_plugin_api() {
   list($module, $api) = func_get_args();
+<<<<<<< HEAD
+  if ($module == "file_entity" && $api == "file_default_displays") {
+=======
   if ($module == "ds" && $api == "ds") {
     return array("version" => "1");
   }
   list($module, $api) = func_get_args();
   if ($module == "page_manager" && $api == "pages_default") {
+>>>>>>> 3987556bc98acdce97c17b41c91325fcec478801
     return array("version" => "1");
   }
   list($module, $api) = func_get_args();
@@ -65,7 +69,11 @@ function pushtape_discography_image_default_styles() {
   $styles['artwork_large'] = array(
     'name' => 'artwork_large',
     'effects' => array(
+<<<<<<< HEAD
+      1 => array(
+=======
       7 => array(
+>>>>>>> 3987556bc98acdce97c17b41c91325fcec478801
         'label' => 'Scale',
         'help' => 'Scaling will maintain the aspect-ratio of the original image. If only a single dimension is specified, the other dimension will be calculated.',
         'effect callback' => 'image_scale_effect',
@@ -88,6 +96,15 @@ function pushtape_discography_image_default_styles() {
   $styles['artwork_medium'] = array(
     'name' => 'artwork_medium',
     'effects' => array(
+<<<<<<< HEAD
+      2 => array(
+        'label' => 'Scale and crop',
+        'help' => 'Scale and crop will maintain the aspect-ratio of the original image, then crop the larger dimension. This is most useful for creating perfectly square thumbnails without stretching the image.',
+        'effect callback' => 'image_scale_and_crop_effect',
+        'dimensions callback' => 'image_resize_dimensions',
+        'form callback' => 'image_resize_form',
+        'summary theme' => 'image_resize_summary',
+=======
       9 => array(
         'label' => 'Scale',
         'help' => 'Scaling will maintain the aspect-ratio of the original image. If only a single dimension is specified, the other dimension will be calculated.',
@@ -95,14 +112,19 @@ function pushtape_discography_image_default_styles() {
         'dimensions callback' => 'image_scale_dimensions',
         'form callback' => 'image_scale_form',
         'summary theme' => 'image_scale_summary',
+>>>>>>> 3987556bc98acdce97c17b41c91325fcec478801
         'module' => 'image',
         'name' => 'image_scale',
         'data' => array(
           'width' => '450',
+<<<<<<< HEAD
+          'height' => '450',
+=======
           'height' => '',
           'upscale' => 1,
+>>>>>>> 3987556bc98acdce97c17b41c91325fcec478801
         ),
-        'weight' => '2',
+        'weight' => '1',
       ),
     ),
   );
