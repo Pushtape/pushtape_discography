@@ -3,49 +3,34 @@ description = Feature package that creates album and track content types and vie
 core = 7.x
 package = Pushtape
 php = 5.2.4
-<<<<<<< HEAD
 version = 7.x-1.0-alpha3
 project = pushtape_discography
 dependencies[] = block
 dependencies[] = colorbox
 dependencies[] = ctools
-=======
-version = 7.x-1.0-alpha6
-project = pushtape_discography
-dependencies[] = block
->>>>>>> 3987556bc98acdce97c17b41c91325fcec478801
 dependencies[] = date
 dependencies[] = date_popup
 dependencies[] = date_views
 dependencies[] = entityreference
-<<<<<<< HEAD
 dependencies[] = features
 dependencies[] = file_entity
-=======
->>>>>>> 3987556bc98acdce97c17b41c91325fcec478801
 dependencies[] = image
 dependencies[] = link
 dependencies[] = list
+dependencies[] = media
 dependencies[] = menu
-<<<<<<< HEAD
 dependencies[] = options
-=======
->>>>>>> 3987556bc98acdce97c17b41c91325fcec478801
 dependencies[] = panelizer
 dependencies[] = pathauto
 dependencies[] = pushtape_audio
 dependencies[] = pushtape_ui
 dependencies[] = strongarm
 dependencies[] = taxonomy
+dependencies[] = text
+dependencies[] = views
 dependencies[] = views_content
-<<<<<<< HEAD
 datestamp = 1365126284
 features[ctools][] = file_entity:file_default_displays:1
-=======
-apps[server] = http://apps.pushtape.openlearninglabs.org/app/query/pushtape
-datestamp = 1348363658
-features[ctools][] = page_manager:pages_default:1
->>>>>>> 3987556bc98acdce97c17b41c91325fcec478801
 features[ctools][] = panelizer:panelizer:1
 features[ctools][] = strongarm:strongarm:1
 features[ctools][] = views:views_default:3.0
@@ -53,13 +38,10 @@ features[features_api][] = api:1
 features[field][] = node-album-body
 features[field][] = node-album-field_artist
 features[field][] = node-album-field_artwork
-<<<<<<< HEAD
 features[field][] = node-album-field_credits
 features[field][] = node-album-field_featured_status
 features[field][] = node-album-field_label
 features[field][] = node-album-field_links
-=======
->>>>>>> 3987556bc98acdce97c17b41c91325fcec478801
 features[field][] = node-album-field_release_date
 features[field][] = node-album-field_tags
 features[field][] = node-album-field_tracklist
@@ -68,6 +50,8 @@ features[field][] = node-track-field_album
 features[field][] = node-track-field_artist
 features[field][] = node-track-field_artwork
 features[field][] = node-track-field_credits
+features[field][] = node-track-field_featured_status
+features[field][] = node-track-field_label
 features[field][] = node-track-field_license
 features[field][] = node-track-field_links
 features[field][] = node-track-field_lyrics
@@ -81,35 +65,11 @@ features[image][] = artwork_small
 features[image][] = artwork_thumbnail
 features[node][] = album
 features[node][] = track
-<<<<<<< HEAD
 features[panelizer_defaults][] = node:album:default
 features[panelizer_defaults][] = node:track:default
 features[taxonomy][] = artists
 features[taxonomy][] = label
 features[taxonomy][] = tags
-=======
-features[page_manager_pages][] = pushtape_albums
-features[page_manager_pages][] = pushtape_tracks
-features[taxonomy][] = artists
-features[user_permission][] = access administration pages
-features[user_permission][] = access content
-features[user_permission][] = access content overview
-features[user_permission][] = access site in maintenance mode
-features[user_permission][] = administer blocks
-features[user_permission][] = administer site configuration
-features[user_permission][] = administer themes
-features[user_permission][] = create album content
-features[user_permission][] = create track content
-features[user_permission][] = delete own album content
-features[user_permission][] = delete own track content
-features[user_permission][] = edit own album content
-features[user_permission][] = edit own track content
-features[user_permission][] = use text format filtered_html
-features[user_permission][] = use text format full_html
-features[user_permission][] = view own unpublished content
-features[user_permission][] = view the administration theme
-features[user_role][] = artist
->>>>>>> 3987556bc98acdce97c17b41c91325fcec478801
 features[variable][] = field_bundle_settings_node__album
 features[variable][] = field_bundle_settings_node__track
 features[variable][] = menu_options_album
@@ -131,7 +91,6 @@ features[views_view][] = albums
 features[views_view][] = releases
 features[views_view][] = tracklist
 features[views_view][] = tracks
-<<<<<<< HEAD
 
 
 ; Information added by drush on 2013-03-28
@@ -140,7 +99,3 @@ core = "7.x"
 project = "pushtape_discography"
 datestamp = "1364538865"
 
-=======
-features_exclude[dependencies][views] = views
-project status url = http://updates.drupal.org/release-history/pushtape_discography/7.x
->>>>>>> 3987556bc98acdce97c17b41c91325fcec478801

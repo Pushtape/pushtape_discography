@@ -3,11 +3,7 @@ description = Demo content for Pushtape Discography
 core = 7.x
 package = Pushtape Demo Content
 php = 5.2.4
-<<<<<<< HEAD
 version = 7.x-1.0-alpha3
-=======
-version = 7.x-1.0-alpha6
->>>>>>> 3987556bc98acdce97c17b41c91325fcec478801
 project = pushtape_discography_demo
 dependencies[] = defaultcontent
 dependencies[] = features
