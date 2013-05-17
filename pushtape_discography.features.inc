@@ -49,10 +49,10 @@ function pushtape_discography_image_default_styles() {
         'module' => 'image',
         'name' => 'image_scale_and_crop',
         'data' => array(
-          'width' => '1600',
-          'height' => '1200',
+          'width' => 1600,
+          'height' => 1200,
         ),
-        'weight' => '1',
+        'weight' => 1,
       ),
     ),
   );
@@ -71,11 +71,11 @@ function pushtape_discography_image_default_styles() {
         'module' => 'image',
         'name' => 'image_scale',
         'data' => array(
-          'width' => '550',
+          'width' => 550,
           'height' => '',
           'upscale' => 1,
         ),
-        'weight' => '1',
+        'weight' => 1,
       ),
     ),
   );
@@ -94,10 +94,10 @@ function pushtape_discography_image_default_styles() {
         'module' => 'image',
         'name' => 'image_scale_and_crop',
         'data' => array(
-          'width' => '450',
-          'height' => '450',
+          'width' => 450,
+          'height' => 450,
         ),
-        'weight' => '1',
+        'weight' => 1,
       ),
     ),
   );
@@ -116,10 +116,10 @@ function pushtape_discography_image_default_styles() {
         'module' => 'image',
         'name' => 'image_scale_and_crop',
         'data' => array(
-          'width' => '225',
-          'height' => '225',
+          'width' => 225,
+          'height' => 225,
         ),
-        'weight' => '1',
+        'weight' => 1,
       ),
     ),
   );
@@ -138,10 +138,10 @@ function pushtape_discography_image_default_styles() {
         'module' => 'image',
         'name' => 'image_scale_and_crop',
         'data' => array(
-          'width' => '100',
-          'height' => '100',
+          'width' => 100,
+          'height' => 100,
         ),
-        'weight' => '1',
+        'weight' => 1,
       ),
     ),
   );
